@@ -1,4 +1,13 @@
 {
-  "name": "ionic-ts-sample",
-  "app_id": ""
+    "name": "ionic-ts-sample",
+    "app_id": "",
+    "typescript": true,
+    "gulpStartupTasks": [
+        "sass",
+        "watch"
+    ],
+    "watchPatterns": [
+        "www/**/*",
+        "!www/lib/**/*"
+    ]
 }
