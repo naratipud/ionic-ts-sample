@@ -20,3 +20,7 @@ www/lib
 ### Typings ###
 ## Ignore downloaded typings
 typings
+
+### build ###
+www/js
+www/pages
