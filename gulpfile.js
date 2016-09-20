@@ -22,19 +22,17 @@ var glob = require('glob');
  */
 var browserifyBuild = require('ionic-gulp-browserify-typescript');
 var copyHTML = require('ionic-gulp-html-copy');
-// var copyFonts = require('ionic-gulp-fonts-copy');
-// var copyScripts = require('ionic-gulp-scripts-copy');
 var tslint = require('ionic-gulp-tslint');
 
 var isRelease = argv.indexOf('--release') > -1;
 
 var paths = {
     sass: ['./scss/**/*.scss'],
-    // src: ['./app/app.ts', './typings/index.d.ts', './app/pages/home/app.ts', './app/pages/home/home.ctrl.ts']
-    src: ['./app/app.ts', './typings/index.d.ts']
+    src: ['./app/app.ts', './typings/index.d.ts'],
+    ts: './app/**/*.ts'
 };
 
-// gulp.task('default', ['sass']);
+gulp.task('default', ['build', 'watch']);
 
 gulp.task('sass', function(done) {
     gulp.src('./scss/ionic.app.scss')
@@ -49,9 +47,7 @@ gulp.task('sass', function(done) {
         .on('end', done);
 });
 
-gulp.task('watch', ['clean'], function(done) {
-    paths.src.push(glob.sync('./app/pages/**/*.ts'));
-    // paths.src.push(glob.sync('./app/pages/**/*.ctrl.ts'));
+gulp.task('watch', function(done) {
     runSequence(
         ['sass', 'html'],
         function() {
@@ -60,7 +56,6 @@ gulp.task('watch', ['clean'], function(done) {
             gulpWatch('app/**/*.ts', function() { gulp.start('lint'); });
             browserifyBuild({
                 watch: true,
-                src: paths.src,
                 outputPath: 'www/js',
                 outputFile: 'app.bundle.js'
             }).on('end', done);
@@ -69,10 +64,12 @@ gulp.task('watch', ['clean'], function(done) {
 });
 
 gulp.task('build', ['clean'], function(done) {
+    paths.src.push(glob.sync(paths.ts));
     runSequence(
         ['sass', 'html'],
         function() {
             browserifyBuild({
+                src: paths.src,
                 minify: isRelease,
                 browserifyOptions: {
                     debug: !isRelease
@@ -110,8 +107,6 @@ gulp.task('git-check', function(done) {
 gulp.task('html', function() {
     return copyHTML({ dest: 'www' });
 });
-// gulp.task('fonts', copyFonts);
-// gulp.task('scripts', copyScripts);
 gulp.task('clean', function() {
     return del(['www/js']);
 });
