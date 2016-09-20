@@ -1,2 +1,2 @@
 # ionic-ts-sample
-Getting started on Ionic + TypeScript
+This is sample project to demonstrate Ionic V1 and TypeScript.
