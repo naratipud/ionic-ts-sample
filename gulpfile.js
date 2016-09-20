@@ -9,6 +9,8 @@ var sh = require('shelljs');
 var del = require('del');
 var gulpWatch = require('gulp-watch');
 var runSequence = require('run-sequence');
+var argv = process.argv;
+var glob = require('glob');
 
 /**
  * Ionic Gulp tasks, for more information on each see
@@ -18,14 +20,18 @@ var runSequence = require('run-sequence');
  * changes, but you are of course welcome (and encouraged) to customize your
  * build however you see fit.
  */
-var buildBrowserify = require('ionic-gulp-browserify-typescript');
+var browserifyBuild = require('ionic-gulp-browserify-typescript');
 var copyHTML = require('ionic-gulp-html-copy');
 // var copyFonts = require('ionic-gulp-fonts-copy');
 // var copyScripts = require('ionic-gulp-scripts-copy');
 var tslint = require('ionic-gulp-tslint');
 
+var isRelease = argv.indexOf('--release') > -1;
+
 var paths = {
-    sass: ['./scss/**/*.scss']
+    sass: ['./scss/**/*.scss'],
+    // src: ['./app/app.ts', './typings/index.d.ts', './app/pages/home/app.ts', './app/pages/home/home.ctrl.ts']
+    src: ['./app/app.ts', './typings/index.d.ts']
 };
 
 // gulp.task('default', ['sass']);
@@ -44,13 +50,39 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', ['clean'], function(done) {
+    paths.src.push(glob.sync('./app/pages/**/*.ts'));
+    // paths.src.push(glob.sync('./app/pages/**/*.ctrl.ts'));
     runSequence(
         ['sass', 'html'],
         function() {
             gulpWatch('app/**/*.scss', function() { gulp.start('sass'); });
             gulpWatch('app/**/*.html', function() { gulp.start('html'); });
             gulpWatch('app/**/*.ts', function() { gulp.start('lint'); });
-            buildBrowserify({ watch: true, outputPath: 'www/js', outputFile: 'app.bundle.js' }).on('end', done);
+            browserifyBuild({
+                watch: true,
+                src: paths.src,
+                outputPath: 'www/js',
+                outputFile: 'app.bundle.js'
+            }).on('end', done);
+        }
+    );
+});
+
+gulp.task('build', ['clean'], function(done) {
+    runSequence(
+        ['sass', 'html'],
+        function() {
+            browserifyBuild({
+                minify: isRelease,
+                browserifyOptions: {
+                    debug: !isRelease
+                },
+                uglifyOptions: {
+                    mangle: false
+                },
+                outputPath: 'www/js',
+                outputFile: 'app.bundle.js'
+            }).on('end', done);
         }
     );
 });
