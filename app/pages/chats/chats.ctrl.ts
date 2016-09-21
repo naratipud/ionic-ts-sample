@@ -2,6 +2,7 @@ import { chats } from './index';
 import { IChatUser, IChatsService } from './chats.service';
 
 class ChatsCtrl {
+    static $inject = ['ChatsService'];
     chats: IChatUser[];
 
     constructor(private ChatsService: IChatsService) {

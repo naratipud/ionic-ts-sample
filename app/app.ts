@@ -2,6 +2,7 @@ import { dashboard } from './pages/dash/index';
 import { account } from './pages/account/index';
 import { chats } from './pages/chats/index';
 import { chatDetail } from './pages/chat-detail/index';
+
 /**
  * Ionic Starter App.
  */
