@@ -1,11 +1,16 @@
+import { dashboard } from './pages/dash/index';
+import { account } from './pages/account/index';
+import { chats } from './pages/chats/index';
+import { chatDetail } from './pages/chat-detail/index';
 /**
- * Ionic App.
+ * Ionic Starter App.
  */
 export let app = angular.module('app', [
     'ionic',
-    'dashboard',
-    'account',
-    'chats'
+    dashboard.name,
+    account.name,
+    chats.name,
+    chatDetail.name
 ]);
 
 app.run(function ($ionicPlatform: ionic.platform.IonicPlatformService) {
@@ -15,7 +20,6 @@ app.run(function ($ionicPlatform: ionic.platform.IonicPlatformService) {
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-
         }
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
