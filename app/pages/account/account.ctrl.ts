@@ -1,9 +1,14 @@
 import { account } from './index';
 
+interface ISettings {
+    enableFriends: boolean;
+}
+
 class AccountCtrl {
-    settings = { enableFriends: false };
+    settings: ISettings;
+
     constructor() {
-        this.settings.enableFriends = true;
+        this.settings = { enableFriends: true };
     }
 }
 
