@@ -1,7 +1,7 @@
 /**
  * Dashboard module.
  */
-export let dashboard: angular.IModule = angular.module('dashboard', []);
+export let dashboard = angular.module('dashboard', []);
 
 dashboard.config(function ($stateProvider: ng.ui.IStateProvider) {
     // Dashboard route state.

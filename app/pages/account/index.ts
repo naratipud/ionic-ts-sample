@@ -1,7 +1,7 @@
 /**
  * Account module.
  */
-export let account: angular.IModule = angular.module('account', []);
+export let account = angular.module('account', []);
 
 account.config(function ($stateProvider: ng.ui.IStateProvider) {
     // Account route state.
