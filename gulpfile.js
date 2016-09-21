@@ -107,7 +107,9 @@ gulp.task('git-check', function(done) {
 gulp.task('html', function() {
     return copyHTML({ dest: 'www' });
 });
+
 gulp.task('clean', function() {
-    return del(['www/js']);
+    return del(['www/pages', 'www/js']);
 });
+
 gulp.task('lint', tslint);
