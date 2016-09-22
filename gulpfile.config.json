@@ -1,0 +1,10 @@
+{
+    "paths": {
+        "sass": [
+            "./scss/**/*.scss"
+        ],
+        "src": [],
+        "ts": "./app/**/*.ts",
+        "tsd": "./typings/index.d.ts"
+    }
+}
