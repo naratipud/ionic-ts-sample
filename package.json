@@ -37,11 +37,6 @@
     ],
     "cordovaPlatforms": [
         "ios",
-        {
-            "android": {
-                "id": "android",
-                "locator": "https://github.com/apache/cordova-android.git"
-            }
-        }
+        "android"
     ]
 }
