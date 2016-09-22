@@ -6,7 +6,6 @@ interface IChatStateParams extends ng.ui.IStateParamsService {
 }
 
 class ChatDetailCtrl {
-    static $inject = ['ChatsService'];
     chat: IChatUser;
 
     constructor(private $stateParams: IChatStateParams, private ChatsService: IChatsService) {
