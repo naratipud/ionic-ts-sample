@@ -3,8 +3,7 @@
         "sass": [
             "./scss/**/*.scss"
         ],
-        "src": [],
-        "ts": "./app/**/*.ts",
-        "tsd": "./typings/index.d.ts"
+        "src": ["./typings/index.d.ts"],
+        "ts": "./app/**/*.ts"
     }
 }

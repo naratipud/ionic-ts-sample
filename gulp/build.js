@@ -9,7 +9,6 @@ var isRelease = argv.indexOf('--release') > -1;
 
 gulp.task('build', function(done) {
     conf.paths.src.push(glob.sync(conf.paths.ts));
-    conf.paths.src.push(glob.sync(conf.paths.tsd));
 
     runSequence(
         ['sass', 'html'],
