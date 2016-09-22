@@ -9,7 +9,7 @@ var requireDir = require('require-dir');
 var gulpTask = requireDir('./gulp');
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('build');
+    gulp.start('build', 'watch');
 });
 
 gulp.task('install', ['git-check'], function() {
