@@ -3,7 +3,6 @@
     "app_id": "",
     "typescript": true,
     "gulpStartupTasks": [
-        "build",
         "watch"
     ],
     "watchPatterns": [
