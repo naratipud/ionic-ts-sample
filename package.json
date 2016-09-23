@@ -8,7 +8,8 @@
         "url": "https://github.com/naratipud/ionic-ts-sample.git"
     },
     "scripts": {
-        "build": "gulp"
+        "build": "gulp",
+        "start": "ionic serve --lab"
     },
     "dependencies": {
         "gulp": "^3.5.6",
