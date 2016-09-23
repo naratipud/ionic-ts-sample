@@ -21,8 +21,13 @@ www/lib
 ## Ignore downloaded typings
 typings
 
+
 ### build files ###
 www/js
 www/pages
 www/build
 www/css
+
+
+### Reports ###
+reports/
