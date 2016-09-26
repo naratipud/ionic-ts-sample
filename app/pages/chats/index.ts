@@ -1,10 +1,10 @@
 /**
  * Chats module.
  */
-export let chats = angular.module('chats', []);
+export let chatsModule = angular.module('chats', []);
 
-chats.config(function ($stateProvider: ng.ui.IStateProvider) {
-    // Chats route state.
+chatsModule.config(function ($stateProvider: ng.ui.IStateProvider) {
+    // chatsModule route state.
     $stateProvider.state('tab.chats', {
         url: '/chats',
         views: {

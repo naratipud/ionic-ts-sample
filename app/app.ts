@@ -1,6 +1,6 @@
 import { dashboard } from './pages/dash/index';
 import { account } from './pages/account/index';
-import { chats } from './pages/chats/index';
+import { chatsModule } from './pages/chats/index';
 import { chatDetail } from './pages/chat-detail/index';
 
 /**
@@ -10,7 +10,7 @@ export let app = angular.module('app', [
     'ionic',
     dashboard.name,
     account.name,
-    chats.name,
+    chatsModule.name,
     chatDetail.name
 ]);
 

@@ -1,4 +1,4 @@
-import { chats } from './index';
+import { chatsModule } from './index';
 
 export interface IChatsService {
     all(): IChatUser[];
@@ -64,4 +64,4 @@ class ChatsService implements IChatsService {
     }
 }
 
-chats.factory('ChatsService', () => new ChatsService());
+chatsModule.factory('ChatsService', () => new ChatsService());

@@ -1,4 +1,4 @@
-import { chats } from './index';
+import { chatsModule } from './index';
 import { IChatUser, IChatsService } from './chats.service';
 
 class ChatsCtrl {
@@ -13,4 +13,4 @@ class ChatsCtrl {
     }
 }
 
-chats.controller('ChatsCtrl', ChatsCtrl);
+chatsModule.controller('ChatsCtrl', ChatsCtrl);
