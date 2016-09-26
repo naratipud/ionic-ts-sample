@@ -1,13 +1,19 @@
-'use strict';
+import { IChatsService } from './chats.service';
 
-describe('Sample test', () => {
+describe('Service: ChatsService', () => {
 
-    it('should behave...', () => {
-        expect(true).toEqual(true);
+    beforeEach(() => {
+        angular.mock.module('app');
+        angular.mock.module('chats');
     });
-    
-    it('should behave...', () => {
-        expect(false).toEqual(true);
+
+    describe('#all()', () => {
+
+        it('should return chat user list.', inject(function (ChatsService: IChatsService) {
+            let chats = ChatsService.all();
+            expect(angular.equals(chats, [])).toBeFalsy();
+        }));
+
     });
-        
+
 });
