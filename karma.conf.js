@@ -16,6 +16,7 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             { pattern: 'www/lib/ionic/js/ionic.bundle.js', watched: false },
+            { pattern: 'www/lib/angular-mocks/angular-mocks.js', watched: false },
             'app/**/*.ts'
         ],
 
@@ -27,7 +28,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'app/**/*.ts': ['karma-typescript']
+            '**/*.ts': ['karma-typescript']
         },
 
 
