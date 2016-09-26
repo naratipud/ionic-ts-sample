@@ -10,13 +10,13 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'karma-typescript'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            'www/lib/ionic/js/ionic.bundle.js',
-            'app/**/*.spec.ts'
+            { pattern: 'www/lib/ionic/js/ionic.bundle.js', watched: false },
+            'app/**/*.ts'
         ],
 
 
@@ -27,33 +27,27 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'app/**/*.ts': ['coverage', 'typescript'],
-        },
-
-        typescriptPreprocessor: {
-            // options passed to the typescript compiler
-            options: {
-                // relative path to tsconfig
-                project: 'tsconfig.json'
-            },
-            // transforming the filenames 
-            transformPath: function(path) {
-                return path.replace(/\.ts$/, '.js');
-            }
+            'app/**/*.ts': ['karma-typescript']
         },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'karma-typescript'],
 
-        // Coverage configuration
-        coverageReporter: {
-            type: 'html',
-            dir: 'reports/',
-            subdir: 'coverage'
+
+        // karma typescript config
+        karmaTypescript: {
+            tsconfigPath: 'tsconfig.json'
         },
+
+        karmaTypescriptConfig: {
+            reports: {
+                'html': 'coverage'
+            }
+        },
+
 
         // web server port
         port: 9876,
@@ -83,6 +77,6 @@ module.exports = function(config) {
 
         // Concurrency level
         // how many browser should be started simultaneous
-        concurrency: Infinity
+        concurrency: 2
     })
 }
