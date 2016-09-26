@@ -11,6 +11,7 @@
     "cordova/plugins/statusbar": "registry:dt/cordova/plugins/statusbar#0.0.0+20160316155526",
     "ionic": "registry:dt/ionic#0.0.0+20160907111202",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "jquery": "registry:dt/jquery#1.10.0+20160908203239"
+    "jquery": "registry:dt/jquery#1.10.0+20160908203239",
+    "require": "registry:dt/require#2.1.20+20160919185614"
   }
 }
