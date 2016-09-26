@@ -3,7 +3,9 @@
         "sass": [
             "./scss/**/*.scss"
         ],
-        "src": ["./typings/index.d.ts"],
-        "ts": "./app/**/*.ts"
+        "src": [
+            "./typings/index.d.ts"
+        ],
+        "ts": "./app/**/!(*.spec).ts"
     }
 }
