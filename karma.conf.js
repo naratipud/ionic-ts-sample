@@ -16,13 +16,14 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             { pattern: 'www/lib/ionic/js/ionic.bundle.js', watched: false },
-            { pattern: 'www/lib/angular-mocks/angular-mocks.js', watched: false },
-            'app/**/*.ts'
+            { pattern: 'node_modules/angular-mocks/angular-mocks.js', watched: false },
+            'www/js/app.bundle.js',
+            'app/**/*spec.ts'
         ],
 
 
         // list of files to exclude
-        exclude: [],
+        exclude: ['node_modules/**/*spec.js'],
 
 
         // preprocess matching files before serving them to the browser

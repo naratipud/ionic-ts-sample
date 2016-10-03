@@ -9,7 +9,7 @@ describe('Service: ChatsService', () => {
 
     describe('#all()', () => {
 
-        it('should return chat user list.', inject(function (ChatsService: IChatsService) {
+        it('should not empty chat list.', inject(function (ChatsService: IChatsService) {
             let chats = ChatsService.all();
             expect(angular.equals(chats, [])).toBeFalsy();
         }));

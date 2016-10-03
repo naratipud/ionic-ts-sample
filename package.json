@@ -11,7 +11,7 @@
     "postinstall": "bower install && typings install",
     "build": "gulp",
     "start": "ionic serve --lab",
-    "test": "karma start karma.conf.js && gulp watch"
+    "test": "karma start karma.conf.js"
   },
   "dependencies": {
     "gulp": "^3.5.6",
@@ -21,6 +21,7 @@
     "gulp-rename": "^1.2.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.8",
     "bower": "^1.3.3",
     "del": "^2.2.2",
     "glob": "^7.0.6",
