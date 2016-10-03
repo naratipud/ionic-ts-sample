@@ -1,5 +1,6 @@
-import { chatsModule } from './index';
-
+/**
+ * 
+ */
 export interface IChatsService {
     all(): IChatUser[];
     remove(chat: IChatUser);
@@ -13,7 +14,10 @@ export interface IChatUser {
     face: String;
 }
 
-class ChatsService implements IChatsService {
+/**
+ * Chats service 
+ */
+export class ChatsService implements IChatsService {
     chats: IChatUser[];
 
     constructor() {
@@ -63,5 +67,3 @@ class ChatsService implements IChatsService {
         return null;
     }
 }
-
-chatsModule.factory('ChatsService', () => new ChatsService());

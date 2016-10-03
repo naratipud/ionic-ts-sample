@@ -1,17 +1,17 @@
-import { dashboard } from './pages/dash/index';
-import { account } from './pages/account/index';
+import { dashboardModule } from './pages/dash/index';
+import { accountModule } from './pages/account/index';
 import { chatsModule } from './pages/chats/index';
-import { chatDetail } from './pages/chat-detail/index';
+import { chatDetailModule } from './pages/chat-detail/index';
 
 /**
  * Ionic Starter App.
  */
 export let app = angular.module('app', [
     'ionic',
-    dashboard.name,
-    account.name,
+    dashboardModule.name,
+    accountModule.name,
     chatsModule.name,
-    chatDetail.name
+    chatDetailModule.name
 ]);
 
 app.run(function ($ionicPlatform: ionic.platform.IonicPlatformService) {

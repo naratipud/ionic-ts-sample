@@ -1,7 +1,9 @@
-import { chatsModule } from './index';
 import { IChatUser, IChatsService } from './chats.service';
 
-class ChatsCtrl {
+/**
+ * Chats controller
+ */
+export class ChatsCtrl {
     chats: IChatUser[];
 
     constructor(private ChatsService: IChatsService) {
@@ -12,5 +14,3 @@ class ChatsCtrl {
         this.ChatsService.remove(chat);
     }
 }
-
-chatsModule.controller('ChatsCtrl', ChatsCtrl);

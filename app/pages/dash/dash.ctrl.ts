@@ -1,8 +1,7 @@
-import { dashboard } from './index';
-
-class DashboardCtrl {
+/**
+ * Dashboard controller
+ */
+export class DashboardCtrl {
     constructor() {
     }
 }
-
-dashboard.controller('DashboardCtrl', DashboardCtrl);
