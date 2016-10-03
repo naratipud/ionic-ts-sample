@@ -8,9 +8,7 @@ var copyHTML = require('ionic-gulp-html-copy');
 var requireDir = require('require-dir');
 var gulpTask = requireDir('./gulp');
 
-gulp.task('default', ['clean'], function() {
-    gulp.start('build');
-});
+gulp.task('serve:before', ['watch']);
 
 gulp.task('install', ['git-check'], function() {
     return bower.commands.install()
